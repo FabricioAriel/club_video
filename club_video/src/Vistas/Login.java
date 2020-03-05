@@ -32,10 +32,6 @@ public class Login extends JFrame {
 	public static JPasswordField pass;
 	private int c=0;
 	
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
