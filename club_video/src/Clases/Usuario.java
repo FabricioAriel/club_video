@@ -1,3 +1,5 @@
+package Clases;
+
 import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +10,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+
+import Conexion.Conexion;
 
 
 public class Usuario {
@@ -61,7 +65,7 @@ public class Usuario {
 			String sql="INSERT INTO user VALUES('"+getId_user()+"','"+getFirst_name()+"','"+getLast_name()+"',"+getGenre()+")"+"','"+getPassword()+"',"+getCellphone()+")";
 			Connection c=(Connection) con.getConexion();
 			Statement st = (Statement) c.createStatement();
-			st.executeUpdate(sql);
+			((java.sql.Statement) st).executeUpdate(sql);
 			c.close();
 			JOptionPane.showMessageDialog(null, "Se ha registrado con éxito");
 			}
@@ -103,7 +107,7 @@ public class Usuario {
 				Connection c= con.getConexion();
 				Statement st=(Statement) c.createStatement();
 				String sql="UPDATE medico SET Clave= '"+getPassword()+"' WHERE id_User='"+getId_user()+"'";
-				st.executeUpdate(sql);
+				((java.sql.Statement) st).executeUpdate(sql);
 				c.close();
 				JOptionPane.showMessageDialog(null, "Clave Cambiada");
 			}
@@ -112,5 +116,5 @@ public class Usuario {
 			}
 			
 		}
-		//adasMas de lo mismo 
+		
 }
